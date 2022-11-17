@@ -11,4 +11,8 @@ public interface Movable {
 	
 	public Vector getPos();
 	public void setPos(Vector v);
+	public Vector getDir();
+	public void setDir(Vector v);
+	
+	public boolean clicked(double x, double y);
 }

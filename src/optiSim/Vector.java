@@ -17,16 +17,16 @@ public class Vector {
 		return new Vector(x - v.x, y - v.y);
 	}
 	
-	double getLenght() {
-		return Math.sqrt(x * x + y * y);
+	double getLenghtSqr() {
+		return (x * x + y * y);
 	}
-	
+	/*
 	Vector normalize() {
 		double l = getLenght();
 		x = x / l;
 		y = y / l;
 		return this;
-	}
+	}*/
 	
 	Vector scale(double t) {
 		x *= t;

@@ -33,4 +33,24 @@ public class PointEmitter implements Emitter, Movable {
 	public void setPos(Vector v) {
 		this.pos = v;
 	}
+
+	@Override
+	public Vector getDir() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDir(Vector v) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public boolean clicked(double x, double y) {
+		Vector c = new Vector(x, y);
+		if(this.getPos().subtract(c).getLenghtSqr() < 100) {
+			return true;
+		}
+		return false;
+	}
 }
