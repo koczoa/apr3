@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Lens extends Segment {
 	double r1, r2, ri;
 	Vector p1, p2;
+	
 	public Lens(Vector pos, Vector dir, double len, double r1, double r2, double ri) {
 		super(pos, dir, len);
 		this.r1 = r1;
@@ -22,6 +23,8 @@ public class Lens extends Segment {
 		double p2y = mid.getY() - d2 * dir.getNormalVector().getY();
 		this.p1 = new Vector(p1x, p1y);
 		this.p2 = new Vector(p2x, p2y);
+		//System.out.println(r2 + " " + p2x + " " + p2y);
+		 
 	}
 	
 	public void show(Graphics2D g2d) {
@@ -29,8 +32,8 @@ public class Lens extends Segment {
 		g2d.setStroke(new BasicStroke(2));
 		g2d.drawLine((int)pos.getX(), (int)pos.getY(), (int)(pos.getX() + len * dir.getX()), (int)(pos.getY() + len * dir.getY()));
 		g2d.setStroke(new BasicStroke(1));
-		g2d.drawOval((int)p1.getX() - 5, (int)p1.getY() - 5, 10, 10);
-		g2d.drawOval((int)p2.getX() - 5, (int)p2.getY() - 5, 10, 10);
+		g2d.drawOval((int)(p1.getX() - r1), (int)(p1.getY() - r1), (int)(2*r1), (int)(2*r1));
+		g2d.drawOval((int)(p2.getX() - r2), (int)(p2.getY() - r2), (int)(2*r2), (int)(2*r2));
 	}
 	
 	public void hitByRay(ArrayList<Ray> rays, Ray ray, Vector point) {
@@ -38,5 +41,4 @@ public class Lens extends Segment {
 			
 		}
 	}
-
 }

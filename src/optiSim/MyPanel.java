@@ -35,10 +35,12 @@ public class MyPanel extends JPanel {
 		ArrayList<Segment> segments = new ArrayList<Segment>() {
 			private static final long serialVersionUID = 1L;
 			{
+				/*
 				add(new Blocker(new Vector(0, 0), new Vector(1, 0), getWidth())); //top
 				add(new Blocker(new Vector(0, 0), new Vector(0, 1), getHeight())); // left
 				add(new Blocker(new Vector(0, getHeight()), new Vector(1, 0), getWidth())); // bottom
 				add(new Blocker(new Vector(getWidth(), 0), new Vector(0, 1), getHeight())); //right
+				*/
 			}
 		};
 		

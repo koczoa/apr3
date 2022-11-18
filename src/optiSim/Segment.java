@@ -7,6 +7,8 @@ public abstract class Segment implements Movable {
 	Vector pos;
 	Vector dir;
 	double len;
+	Vector p1, p2;
+	double r1, r2;
 	
 	Segment(Vector pos, Vector dir, double len) {
 		this.pos = pos;
@@ -16,6 +18,7 @@ public abstract class Segment implements Movable {
 	
 	public abstract void show(Graphics2D g2d);
 	public abstract void hitByRay(ArrayList<Ray> rays, Ray asdf, Vector pls);
+	//public abstract Vector cast(Ray ray);
 	
 	public Vector getPos() {
 		return pos;
@@ -39,6 +42,9 @@ public abstract class Segment implements Movable {
 			return true;
 		}
 		return false;
+	}
+	public double getR1() {
+		return r1;
 	}
 	
 }
