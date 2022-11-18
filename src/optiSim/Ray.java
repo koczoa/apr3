@@ -17,13 +17,36 @@ public class Ray {
 		this.dir = angle;
 		this.ttl = ttl;
 	}
-	
+	/*
+	//line line intersection
 	public <T extends Segment> Vector cast(T stuff) {
 		double x1 = stuff.pos.getX();
 		double y1 = stuff.pos.getY();
 		double x2 = stuff.pos.getX() + (stuff.len * stuff.dir.getX());
 		double y2 = stuff.pos.getY() + (stuff.len * stuff.dir.getY());
-
+		
+		double x3 = this.pos.getX();
+		double y3 = this.pos.getY();
+		double x4 = this.pos.getX() + this.dir.getX();
+		double y4 = this.pos.getY() + this.dir.getY();
+		
+		double den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 -x4);
+		if(den != 0) {
+			double t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4))/den;
+			double u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3))/den;
+			if(t > 0 && t < 1 && u > 0) {
+				return  new Vector(x1 + t * (x2 - x1), y1 + t * (y2 - y1));
+			}
+		}
+		return null;
+	}
+	*/
+	//line "circle" intersection
+	public <T extends Segment> Vector cast(T stuff) {
+		double x1 = stuff.pos.getX();
+		double y1 = stuff.pos.getY();
+		double x2 = stuff.pos.getX() + (stuff.len * stuff.dir.getX());
+		double y2 = stuff.pos.getY() + (stuff.len * stuff.dir.getY());
 		
 		double x3 = this.pos.getX();
 		double y3 = this.pos.getY();

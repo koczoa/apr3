@@ -9,7 +9,6 @@ import javax.swing.Timer;
 public class MyPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private final ArrayList<Emitter> emitters;
-	private ArrayList<Movable> movables;
 	private Timer looper = new Timer(1000/60, new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -19,8 +18,9 @@ public class MyPanel extends JPanel {
 	
 	public MyPanel() {
 		emitters = new ArrayList<>();
-		emitters.add(new PointEmitter(100, 450, 360));
-		movables = new ArrayList<>();
+		//emitters.add(new PointEmitter(100, 450, 360));
+		//emitters.add(new SingleEmitter(100,  450, 1, 1));
+		emitters.add(new ParallelEmitter(100, 300, 0, 1, 300, 10));
 		looper.start();
 	}
 	
@@ -43,15 +43,14 @@ public class MyPanel extends JPanel {
 		};
 		
 		//mirrors
+		/*
 		Mirror m1 = new Mirror(new Vector(750, 250), new Vector(1, 1), 200);
 		Mirror m2 = new Mirror(new Vector(750, 550), new Vector(1, 1), 200);
 		segments.add(m1);
 		segments.add(m2);	
-		movables.add(m1);
-		movables.add(m2);
-		
+		*/
 		//lenses
-		//segments.add(new Lens(new Vector(750, 250), new Vector(0, 1), 50, 2, 2, 1.5));
+		segments.add(new Lens(new Vector(750, 250), new Vector(0, 1), 400, 300, 250, 1.5));
 	
 		//rays	
 		ArrayList<Ray> tempRays = new ArrayList<>();

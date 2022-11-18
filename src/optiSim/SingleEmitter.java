@@ -3,27 +3,22 @@ package optiSim;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PointEmitter implements Emitter, Movable {
+public class SingleEmitter implements Emitter, Movable {
 	private Vector pos;
-	private int n;
+	private Vector dir;
 	
-	public PointEmitter(double x, double y, int n) {
+	public SingleEmitter(double x, double y, double dx, double dy){
 		this.pos = new Vector(x, y);
-		this.n = n;
+		this.dir = new Vector(dx, dy);
 	}
-
+	
 	@Override
 	public List<Ray> emit() {
 		ArrayList<Ray> rays = new ArrayList<>();
-		
-		for(int i = 0; i < n; i++) {
-			double angle = 2*Math.PI * i / n;
-			Vector dir = new Vector(Math.cos(angle), Math.sin(angle));
-			rays.add(new Ray(this.pos, dir, 255));
-		}
+		rays.add(new Ray(this.pos, this.dir, 255));
 		return rays;
 	}
-	
+
 	@Override
 	public Vector getPos() {
 		return this.pos;
@@ -32,17 +27,18 @@ public class PointEmitter implements Emitter, Movable {
 	@Override
 	public void setPos(Vector v) {
 		this.pos = v;
+		
 	}
 
 	@Override
 	public Vector getDir() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.dir;
 	}
 
 	@Override
 	public void setDir(Vector v) {
-		// TODO Auto-generated method stub
+		this.dir = v;
+		
 	}
 
 	@Override
@@ -53,4 +49,7 @@ public class PointEmitter implements Emitter, Movable {
 		}
 		return false;
 	}
+
+
+
 }

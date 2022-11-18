@@ -11,7 +11,6 @@ public abstract class Segment implements Movable {
 	Segment(Vector pos, Vector dir, double len) {
 		this.pos = pos;
 		this.dir = dir;
-
 		this.len = len;
 	}
 	

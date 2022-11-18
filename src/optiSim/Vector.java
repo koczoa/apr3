@@ -35,7 +35,7 @@ public class Vector {
 	}
 	
 	double getAngle() {
-		return Math.atan2(x, y) * 180/Math.PI;
+		return Math.atan2(x, y);
 	}
 	
 	double dist(Vector v) {
