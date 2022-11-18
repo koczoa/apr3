@@ -23,8 +23,6 @@ public class Lens extends Segment {
 		double p2y = mid.getY() - d2 * dir.getNormalVector().getY();
 		this.p1 = new Vector(p1x, p1y);
 		this.p2 = new Vector(p2x, p2y);
-		//System.out.println(r2 + " " + p2x + " " + p2y);
-		 
 	}
 	
 	public void show(Graphics2D g2d) {
@@ -34,6 +32,29 @@ public class Lens extends Segment {
 		g2d.setStroke(new BasicStroke(1));
 		g2d.drawOval((int)(p1.getX() - r1), (int)(p1.getY() - r1), (int)(2*r1), (int)(2*r1));
 		g2d.drawOval((int)(p2.getX() - r2), (int)(p2.getY() - r2), (int)(2*r2), (int)(2*r2));
+	}
+	
+	public Vector cast(Ray ray) {
+		Vector tempPos = ray.pos.subtract(p2);
+		double a = ray.dir.getNormalVector().getX();
+		double b = ray.dir.getNormalVector().getY();
+		double r = this.r2;
+		double c = a * tempPos.getX() + b * tempPos.getY();
+		if((r*r - c*c) > 0) {
+			double under = Math.sqrt(r*r - c*c);
+			double x1 = (a * c + b * under);
+			double y1 = (b * c - a * under);
+			double x2 = (a * c - b * under);
+			double y2 = (b * c + a * under);
+			Vector first = new Vector(x1 + p2.getX(), y1 + p2.getY());
+			Vector second = new Vector(x2 + p2.getX(), y2 + p2.getY());
+			if(this.pos.dist(first) < this.pos.dist(second)) {
+				return first;
+			} else {
+				return second;
+			}
+		}
+		return null;
 	}
 	
 	public void hitByRay(ArrayList<Ray> rays, Ray ray, Vector point) {

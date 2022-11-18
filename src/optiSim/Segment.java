@@ -18,7 +18,7 @@ public abstract class Segment implements Movable {
 	
 	public abstract void show(Graphics2D g2d);
 	public abstract void hitByRay(ArrayList<Ray> rays, Ray asdf, Vector pls);
-	//public abstract Vector cast(Ray ray);
+	public abstract Vector cast(Ray ray);
 	
 	public Vector getPos() {
 		return pos;
