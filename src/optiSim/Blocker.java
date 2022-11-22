@@ -1,12 +1,16 @@
 package optiSim;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.List;
 
-public class Blocker extends Segment {
+public class Blocker extends LightManipulatingElement {
 	public Blocker(Vector pos, Vector dir, double len) {
 		super(pos, dir, len);
 	}
+	
+	public Blocker(double x1, double y1, double x2, double y2) {
+		super(x1, y1, x2, y2);
+	}	
 	
 	public void show(Graphics2D g2d) {
 		g2d.setColor(Color.GRAY);
@@ -37,7 +41,7 @@ public class Blocker extends Segment {
 		return null;
 	}
 	
-	public void hitByRay(ArrayList<Ray> rays, Ray asdf, Vector pls) {
+	public void hitByRay(List<Ray> rays, Ray asdf, Vector pls) {
 		
 	}
 }

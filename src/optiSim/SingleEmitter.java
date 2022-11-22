@@ -3,7 +3,7 @@ package optiSim;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SingleEmitter implements Emitter, Movable {
+public class SingleEmitter implements Emitter, Clickable {
 	private Vector pos;
 	private Vector dir;
 	

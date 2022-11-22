@@ -3,11 +3,15 @@ package optiSim;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
+import java.util.List;
 
-public class Mirror extends Segment {
+public class Mirror extends LightManipulatingElement {
 	public Mirror(Vector pos, Vector dir, double len) {
 		super(pos, dir, len);
+	}
+	
+	public Mirror(double x1, double y1, double x2, double y2) {
+		super(x1, y1, x2, y2);
 	}
 	
 	public void show(Graphics2D g2d) {
@@ -39,7 +43,7 @@ public class Mirror extends Segment {
 		return null;
 	}
 	
-	public void hitByRay(ArrayList<Ray> rays, Ray ray, Vector point) {
+	public void hitByRay(List<Ray> rays, Ray ray, Vector point) {
 		if(ray.ttl > 2) {
 			Vector sn = this.dir.getNormalVector();
 			Vector pd = ray.dir.subtract(sn.scale(2*ray.dir.dotProduct(sn)));

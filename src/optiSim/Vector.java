@@ -20,13 +20,17 @@ public class Vector {
 	double getLenghtSqr() {
 		return (x * x + y * y);
 	}
-	/*
+	
+	double getLenght() {
+		return Math.sqrt(x * x + y * y);
+	}
+	
 	Vector normalize() {
 		double l = getLenght();
 		x = x / l;
 		y = y / l;
 		return this;
-	}*/
+	}
 	
 	Vector scale(double t) {
 		x *= t;

@@ -1,6 +1,6 @@
 package optiSim;
 
-public interface Movable {
+public interface Clickable {
 	public default void move(Vector v) {
 		setPos(getPos().add(v));
 	}
